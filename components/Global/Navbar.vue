@@ -49,7 +49,7 @@
             <!-- Search -->
             <v-spacer></v-spacer>
 
-            <v-toolbar-items>
+            <!-- <v-toolbar-items>
                 <v-autocomplete
                     v-model="model"
                     :items="items"
@@ -65,7 +65,7 @@
                     prepend-icon="mdi-database-search"
                     return-object
                 ></v-autocomplete>
-            </v-toolbar-items>
+            </v-toolbar-items> -->
 
             <v-spacer></v-spacer>
             <!-- links -->

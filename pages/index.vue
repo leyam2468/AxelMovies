@@ -30,5 +30,10 @@ export default {
             })
         }
     },
+    head() {
+        return {
+            title: 'Home Page',
+        }
+    },
 }
 </script>

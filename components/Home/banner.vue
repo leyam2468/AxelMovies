@@ -2,6 +2,7 @@
     <div class="banner">
         <v-carousel
             continuous
+            cycle
             height="400"
             hide-delimiter-background
             show-arrows-on-hover
@@ -16,7 +17,7 @@
             >
                 <v-sheet color="rgba(30, 30, 30, 0.5)" height="100%" tile>
                     <v-row class="fill-height" align="center" justify="center">
-                        <v-col md="4"
+                        <v-col md="4" cols="12"
                             ><v-row class="" align="center" justify="center">
                                 <v-img
                                     :src="`https://image.tmdb.org/t/p/w500${video.poster_path}`"
@@ -27,7 +28,7 @@
                                 >
                                 </v-img> </v-row
                         ></v-col>
-                        <v-col md="8"
+                        <v-col md="8" class="hidden-xs-only"
                             ><div class="pa-10">
                                 <h2
                                     class="color-one font-weight-black display-3"

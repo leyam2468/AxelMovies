@@ -16,7 +16,7 @@ export default {
      ** See https://nuxtjs.org/api/configuration-head
      */
     head: {
-        titleTemplate: '%s - ' + process.env.npm_package_name,
+        titleTemplate: '%s - Axel4Movies',
         title: process.env.npm_package_name || '',
         meta: [
             { charset: 'utf-8' },
@@ -32,6 +32,7 @@ export default {
         ],
         link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     },
+    loading: { color: '#c62828' },
     /*
      ** Global CSS
      */
@@ -71,7 +72,7 @@ export default {
      ** https://github.com/nuxt-community/vuetify-module
      */
     vuetify: {
-        //customVariables: ['~/assets/variables.scss'],
+        // customVariables: ['~/assets/variables.scss'],
         theme: {
             dark: true,
             themes: {
