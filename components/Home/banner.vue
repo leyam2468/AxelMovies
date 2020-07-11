@@ -3,7 +3,7 @@
         <v-carousel
             continuous
             cycle
-            height="400"
+            height="450"
             hide-delimiter-background
             show-arrows-on-hover
             delimiter-icon="mdi-minus"
@@ -16,41 +16,46 @@
                 transition="fade-transition"
             >
                 <v-sheet color="rgba(30, 30, 30, 0.5)" height="100%" tile>
-                    <v-row class="fill-height" align="center" justify="center">
-                        <v-col md="4" cols="12"
-                            ><v-row class="" align="center" justify="center">
+                    <v-container>
+                        <v-row
+                            class="fill-height h-100"
+                            align="center"
+                            justify="center"
+                        >
+                            <v-col md="4" cols="12">
                                 <v-img
                                     :src="`https://image.tmdb.org/t/p/w500${video.poster_path}`"
-                                    aspect-ratio="1"
                                     class="grey lighten-2 elevation-20"
                                     max-width="300"
-                                    max-height="300"
+                                    max-height="400"
                                 >
-                                </v-img> </v-row
-                        ></v-col>
-                        <v-col md="8" class="hidden-xs-only"
-                            ><div class="pa-10">
-                                <h2
-                                    class="color-one font-weight-black display-3"
-                                >
-                                    {{ video.original_title | shorten(40) }}
-                                </h2>
-                                <v-divider class="py-2"></v-divider>
-                                <p>{{ video.overview | shorten(450) }}</p>
+                                </v-img>
+                            </v-col>
+                            <v-col md="8" class="hidden-xs-only"
+                                ><div class="pa-2">
+                                    <h2
+                                        class="color-one font-weight-black display-3"
+                                    >
+                                        {{ video.original_title | shorten(40) }}
+                                    </h2>
+                                    <v-divider class="py-2"></v-divider>
+                                    <p>{{ video.overview | shorten(450) }}</p>
 
-                                <v-rating
-                                    v-model="video.vote_average"
-                                    background-color="red lighten-3"
-                                    color="red"
-                                    length="10"
-                                ></v-rating></div
-                        ></v-col>
-                    </v-row> </v-sheet
+                                    <v-rating
+                                        v-model="video.vote_average"
+                                        background-color="red lighten-3"
+                                        color="red"
+                                        length="10"
+                                    ></v-rating></div
+                            ></v-col>
+                        </v-row>
+                    </v-container> </v-sheet
             ></v-carousel-item>
         </v-carousel>
-        <div v-for="video in videos" :key="video.id">
+
+        <!-- <div v-for="video in videos" :key="video.id">
             {{ video }}<v-divider class="py-2"></v-divider>
-        </div>
+        </div> -->
     </div>
 </template>
 
@@ -72,24 +77,7 @@ export default {
         },
     },
     data() {
-        return {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
-            items: [
-                {
-                    src:
-                        'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
-                },
-                {
-                    src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
-                },
-                {
-                    src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
-                },
-                {
-                    src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
-                },
-            ],
-        }
+        return {}
     },
 }
 </script>

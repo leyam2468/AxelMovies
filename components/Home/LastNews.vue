@@ -1,15 +1,14 @@
 <template>
     <div class="lastnews">
-        <v-container>
-            <marquee
-                behavior=""
-                direction="right"
-                class="grey darken-3 white--text lastnews-text color-one"
-                >Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Incidunt hic voluptates id, libero facilis consequatur voluptate
-                repellat non? Nisi, pariatur.</marquee
-            ></v-container
+        <marquee
+            behavior=""
+            direction="right"
+            class="grey darken-3 white--text lastnews-text color-one"
+            >This Site Is Under Develop, please Wait Completing Data</marquee
         >
+        <span>
+            Last News
+        </span>
     </div>
 </template>
 
@@ -21,5 +20,16 @@ export default {}
 .lastnews-text {
     border-radius: 5px;
     padding: 5px 0;
+    position: relative;
+}
+span {
+    position: absolute;
+    width: 100px;
+    padding: 5px;
+    background-color: red;
+    border-radius: 5px;
+    right: 50px;
+    text-align: center;
+    color: white;
 }
 </style>
