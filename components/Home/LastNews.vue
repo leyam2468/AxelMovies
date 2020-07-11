@@ -20,16 +20,16 @@ export default {}
 .lastnews-text {
     border-radius: 5px;
     padding: 5px 0;
-    position: relative;
+    width: 90%;
 }
 span {
-    position: absolute;
-    width: 100px;
+    width: 10%;
     padding: 5px;
     background-color: red;
     border-radius: 5px;
-    right: 50px;
+    right: 0;
     text-align: center;
     color: white;
+    float: right;
 }
 </style>
