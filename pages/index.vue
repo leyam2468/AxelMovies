@@ -74,7 +74,7 @@ export default {
         return {
             slickOptions: {
                 slidesToShow: 5,
-                arrows: true,
+                arrows: false,
                 autoplay: true,
                 autoplaySpeed: 3000,
                 focusOnSelect: false,
