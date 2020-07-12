@@ -78,6 +78,15 @@ export default {
                 autoplay: true,
                 autoplaySpeed: 3000,
                 focusOnSelect: false,
+                responsive: [
+                    {
+                        breakpoint: 750,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2,
+                        },
+                    },
+                ],
             },
             BannerSlickOptions: {
                 arrows: false,
