@@ -4,13 +4,13 @@
             <!-- Last News -->
             <LastNews />
             <!-- Banner -->
-            <div class="banner">
-                <VueSlickCarousel v-bind="BannerSlickOptions">
-                    <div v-for="video in videos" :key="video.id">
-                        <BannerSlide :video="video" />
-                    </div>
-                </VueSlickCarousel>
-            </div>
+            <VueSlickCarousel v-bind="BannerSlickOptions">
+                <BannerSlide
+                    v-for="video in videos"
+                    :key="video.id"
+                    :video="video"
+                />
+            </VueSlickCarousel>
         </v-container>
 
         <!-- Trending -->
@@ -47,6 +47,7 @@ export default {
         LastNews,
         BannerSlide,
         VCard,
+
         VueSlickCarousel,
     },
     async asyncData({ $axios, error }) {
@@ -75,15 +76,14 @@ export default {
                 slidesToShow: 5,
                 arrows: true,
                 autoplay: true,
-                autoplaySpeed: 1000,
+                autoplaySpeed: 3000,
                 focusOnSelect: false,
             },
             BannerSlickOptions: {
                 arrows: false,
-                // slidesToShow: 1,
-                // autoplay: true,
-                // autoplaySpeed: 1000,
-                focusOnSelect: false,
+                slidesToShow: 1,
+                autoplay: true,
+                autoplaySpeed: 3000,
             },
         }
     },
@@ -94,4 +94,4 @@ export default {
     },
 }
 </script>
-<style></style>
+<style lang="scss"></style>

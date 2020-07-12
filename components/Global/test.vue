@@ -1,10 +1,10 @@
 <template>
-    <div class="BannerSlide">
+    <div class="test">
         <div
             :style="{
                 BackgroundImage: `url(https://image.tmdb.org/t/p/w780${video.backdrop_path})`,
             }"
-            class="BannerBox"
+            class="testimg"
         >
             <v-sheet color="rgba(30, 30, 30, 0.5)" height="100%" tile>
                 <v-container>
@@ -48,15 +48,6 @@
 
 <script>
 export default {
-    filters: {
-        shorten(v, num) {
-            if (v.length > num) {
-                return v.substring(0, num) + ' .....'
-            } else {
-                return v
-            }
-        },
-    },
     props: {
         video: {
             type: Object,
@@ -67,14 +58,20 @@ export default {
 </script>
 
 <style lang="scss">
-.BannerSlide {
+.test {
     width: 100%;
     height: 450px;
-    .BannerBox {
+    .testimg {
         width: 100%;
         height: 100%;
         background-size: cover;
-        background-position: center center;
+        background-position: top center;
+        .testh1 {
+            font-size: 3rem;
+        }
+        .testh2 {
+            font-size: 1rem;
+        }
     }
 }
 </style>
