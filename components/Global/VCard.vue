@@ -3,24 +3,26 @@
         <v-img
             :src="`https://image.tmdb.org/t/p/w500${video.poster_path}`"
             class="grey lighten-2 elevation-20"
-            max-width="300"
-            max-height="400"
+            width="300"
+            height="400"
         >
             <div class="video-card-info">
-                <v-row justify="center" align="center" class="pa-3">
-                    <h2 class="color-one font-weight-black">
-                        {{ video.original_title | shorten(40) }}
-                    </h2>
-                    <v-divider class="py-2"></v-divider>
-                    <p>{{ video.overview | shorten(110) }}</p>
+                <h2 class="color-one font-weight-black">
+                    {{ video.original_title | shorten(100) }}
+                </h2>
 
-                    <v-rating
-                        v-model="video.vote_average"
-                        background-color="red lighten-3"
-                        color="red"
-                        length="10"
-                    ></v-rating
-                ></v-row>
+                <v-divider class="py-2"></v-divider>
+                <p class="white--text">{{ video.overview | shorten(150) }}</p>
+
+                <v-rating
+                    v-model="rating"
+                    background-color="red lighten-1"
+                    color="red"
+                    length="5"
+                ></v-rating>
+                <v-btn to="/video" class="mt-3" color="red white--text"
+                    >See Movie</v-btn
+                >
             </div>
         </v-img>
     </div>
@@ -43,6 +45,11 @@ export default {
             default: null,
         },
     },
+    data() {
+        return {
+            rating: this.video.vote_average / 2,
+        }
+    },
 }
 </script>
 
@@ -52,6 +59,8 @@ export default {
     width: 100%;
     height: 100%;
     opacity: 0;
+    text-align: center;
+    padding: 10px;
 
     transition: opacity 0.5s ease-in-out;
     &:hover {
