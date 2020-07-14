@@ -27,10 +27,15 @@
                                 <h2
                                     class="color-one font-weight-black display-3"
                                 >
-                                    {{ video.original_title | shorten(40) }}
+                                    {{
+                                        video.original_title ||
+                                        video.title ||
+                                        video.original_name ||
+                                        video.name | shorten(35)
+                                    }}
                                 </h2>
                                 <v-divider class="py-2"></v-divider>
-                                <p>{{ video.overview | shorten(450) }}</p>
+                                <p>{{ video.overview | shorten(250) }}</p>
 
                                 <v-rating
                                     v-model="video.vote_average"
@@ -52,6 +57,8 @@ export default {
         shorten(v, num) {
             if (v.length > num) {
                 return v.substring(0, num) + ' .....'
+            } else if (v === undefined) {
+                return 'no title'
             } else {
                 return v
             }
