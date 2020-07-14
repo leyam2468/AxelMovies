@@ -1,26 +1,23 @@
 <template>
     <div class="Movies">
-        <h1>Movies</h1>
-        <v-row no-gutters="">
-            <v-col
-                v-for="video in movie.results"
-                :key="video.id"
-                cols="6"
-                md="3"
-            >
-                <VCard :video="video" />
+        <div class="title my-5 ml-3">
+            <h1>Movies</h1>
+        </div>
+        <!--  -->
+        <v-row dense justify="center" align="center">
+            <v-col v-for="video in posts" :key="video.id" cols="6" md="2">
+                <VCard :video="video" :genres="genres" />
             </v-col>
         </v-row>
-        <div class="text-center my-5">
-            <v-pagination
-                v-model="page"
-                :length="movie.total_pages"
-                total-visible="15"
-                prev-icon="mdi-menu-left"
-                next-icon="mdi-menu-right"
-            ></v-pagination>
-            {{ page }}
-        </div>
+        <!--  -->
+        <v-pagination
+            v-model="page"
+            :length="totalPages"
+            total-visible="15"
+            class="my-5"
+            color="red"
+            @input="next"
+        ></v-pagination>
     </div>
 </template>
 
@@ -31,14 +28,23 @@ export default {
     components: {
         VCard,
     },
-    async asyncData({ $axios, error }) {
+    watchQuery: ['page'],
+    async asyncData({ $axios, error, query }) {
         try {
+            const page = query.page || 1
             const movie = await $axios.get(
-                'https://api.themoviedb.org/3/movie/top_rated?api_key=e248b861c3ca5e9cf5bb0113718abaf2&language=en-US&page=1'
+                'https://api.themoviedb.org/3/movie/top_rated?api_key=e248b861c3ca5e9cf5bb0113718abaf2&language=en-US&page=' +
+                    page
+            )
+            const genres = await $axios.get(
+                'https://api.themoviedb.org/3/genre/movie/list?api_key=e248b861c3ca5e9cf5bb0113718abaf2&language=en-US'
             )
             console.log(movie)
             return {
-                movie: movie.data,
+                posts: movie.data.results,
+                page: movie.data.page,
+                totalPages: movie.data.total_pages,
+                genres: genres.data.genres,
             }
         } catch (e) {
             error({
@@ -47,12 +53,17 @@ export default {
             })
         }
     },
-    data() {
-        return {
-            page: 1,
-        }
+    methods: {
+        next() {
+            this.$router.push({ query: { page: this.page } })
+        },
     },
 }
 </script>
 
-<style></style>
+<style>
+.title {
+    padding: 5px 10px;
+    border-left: 3px solid red;
+}
+</style>

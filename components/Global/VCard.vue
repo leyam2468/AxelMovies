@@ -7,22 +7,38 @@
             height="400"
         >
             <div class="video-card-info">
+                <!-- title -->
                 <h2 class="color-one font-weight-black">
                     {{ video.original_title | shorten(100) }}
                 </h2>
 
                 <v-divider class="py-2"></v-divider>
-                <p class="white--text">{{ video.overview | shorten(150) }}</p>
-
+                <p class="white--text">{{ video.overview | shorten(100) }}</p>
+                <!-- Rating -->
                 <v-rating
                     v-model="rating"
                     background-color="red lighten-1"
                     color="red"
                     length="5"
                 ></v-rating>
-                <v-btn to="/video" class="mt-3" color="red white--text"
-                    >See Movie</v-btn
+                <!-- Catagre -->
+                <span
+                    v-for="genre_id in video.genre_ids"
+                    :key="genre_id.id"
+                    class="pa-2 ma-3 color-one font-weight-black"
                 >
+                    <span v-for="genre in genres" :key="genre.id">
+                        <span v-if="genre_id == genre.id">{{
+                            genre.name
+                        }}</span>
+                    </span>
+                </span>
+                <!-- BTN  See More -->
+                <div>
+                    <v-btn to="/video" class="mt-3" color="red white--text"
+                        >See Movie</v-btn
+                    >
+                </div>
             </div>
         </v-img>
     </div>
@@ -42,6 +58,10 @@ export default {
     props: {
         video: {
             type: Object,
+            default: null,
+        },
+        genres: {
+            type: Array,
             default: null,
         },
     },
