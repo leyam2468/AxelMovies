@@ -148,12 +148,12 @@ export default {
                     icon: 'mdi-account-alert',
                 },
                 {
-                    to: 'Tvshow',
+                    to: '/tv',
                     title: 'TV Show',
                     icon: 'mdi-solar-panel-large',
                 },
                 {
-                    to: 'Movies',
+                    to: '/movies',
                     title: 'Movies',
                     icon: 'mdi-account-cash',
                 },

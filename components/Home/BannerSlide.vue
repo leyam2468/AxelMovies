@@ -2,7 +2,7 @@
     <div class="BannerSlide">
         <div
             :style="{
-                BackgroundImage: `url(https://image.tmdb.org/t/p/w780${video.backdrop_path})`,
+                BackgroundImage: `url(https://image.tmdb.org/t/p/w500${video.backdrop_path})`,
             }"
             class="BannerBox elevation-20"
         >
