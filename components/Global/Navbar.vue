@@ -19,7 +19,7 @@
 
                 <v-divider></v-divider>
                 <v-list-item v-for="link in links" :key="link.to">
-                    <v-btn text class="font-weight-bold" nuxt>
+                    <v-btn text class="font-weight-bold" nuxt :to="link.to">
                         {{ link.title }}
                     </v-btn>
                 </v-list-item>
@@ -90,6 +90,9 @@
                             `${darktheme ? 'weather-night' : 'brightness-6'}`
                         }}</v-icon
                     >
+                </v-btn>
+                <v-btn class="">
+                    <v-icon>mdi-movie-search-outline</v-icon>
                 </v-btn>
                 <!-- Setting -->
                 <!-- <v-dialog

@@ -3,37 +3,63 @@
         <v-container>
             <!-- Last News -->
             <LastNews />
-            <!-- Banner -->
+            <!-- Banner Using Trending All-->
             <VueSlickCarousel v-bind="BannerSlickOptions">
                 <BannerSlide
-                    v-for="video in trendingAll"
+                    v-for="video in trendingAllDay"
                     :key="video.id"
                     :video="video"
                 />
             </VueSlickCarousel>
         </v-container>
 
-        <!-- Trending -->
+        <!-- Trending Movies -->
         <div class="trending">
             <div class="title my-5 ml-3">
                 <h1 class="d-inline-block">Trinding Movies</h1>
                 <v-btn text class="watcheBTN">Watche All</v-btn>
             </div>
             <VueSlickCarousel v-bind="slickOptions">
-                <div v-for="video in videos" :key="video.id">
+                <div v-for="video in trendingMovieDay" :key="video.id">
                     <VCard :video="video" :genres="genres" />
                 </div>
             </VueSlickCarousel>
         </div>
 
-        <!-- Puplare -->
+        <!-- Trending Tv -->
+        <div class="trending">
+            <div class="title my-5 ml-3">
+                <h1 class="d-inline-block">Trinding Tv</h1>
+                <v-btn text class="watcheBTN">Watche All</v-btn>
+            </div>
+            <VueSlickCarousel v-bind="slickOptions">
+                <div v-for="video in trendingTvDay" :key="video.id">
+                    <VCard :video="video" :genres="genres" />
+                </div>
+            </VueSlickCarousel>
+        </div>
+
+        <!-- TopMovie -->
         <div class="puplare">
             <div class="title my-5 ml-3">
                 <h1 class="d-inline-block">Top Rated Movies</h1>
                 <v-btn text class="watcheBTN">Watche All</v-btn>
             </div>
             <VueSlickCarousel v-bind="slickOptions">
-                <div v-for="video in movie" :key="video.id">
+                <div v-for="video in TopMovie" :key="video.id">
+                    <VCard :video="video" :genres="genres" />
+                </div>
+            </VueSlickCarousel>
+        </div>
+
+        <!-- TopTv -->
+        <div class="puplare">
+            <div class="title my-5 ml-3">
+                <h1 class="d-inline-block">Top Rated Tv</h1>
+                <v-btn text class="watcheBTN">Watche All</v-btn>
+            </div>
+            <VueSlickCarousel v-bind="slickOptions">
+                <div v-for="video in TopTv" :key="video.id">
                     <VCard :video="video" :genres="genres" />
                 </div>
             </VueSlickCarousel>
@@ -61,26 +87,39 @@ export default {
     async asyncData({ $axios, error }) {
         try {
             // Trinding Movie Day
-            const trendingAll = await $axios.get(
+            const trendingAllDay = await $axios.get(
                 'https://api.themoviedb.org/3/trending/all/day?api_key=e248b861c3ca5e9cf5bb0113718abaf2'
             )
             // Trinding Movie Day
             const trendingMovieDay = await $axios.get(
                 'https://api.themoviedb.org/3/trending/movie/day?api_key=e248b861c3ca5e9cf5bb0113718abaf2'
             )
+            // Trinding Movie Day
+            const trendingTvDay = await $axios.get(
+                'https://api.themoviedb.org/3/trending/tv/day?api_key=e248b861c3ca5e9cf5bb0113718abaf2'
+            )
             // Movies Top Rated
-            const movie = await $axios.get(
+            const TopMovie = await $axios.get(
                 'https://api.themoviedb.org/3/movie/top_rated?api_key=e248b861c3ca5e9cf5bb0113718abaf2&language=en-US&page=1'
+            )
+            // Tv Top Rated
+            const TopTv = await $axios.get(
+                'https://api.themoviedb.org/3/tv/top_rated?api_key=e248b861c3ca5e9cf5bb0113718abaf2&language=en-US&page=1'
             )
             // Catagre Movies
             const genres = await $axios.get(
                 'https://api.themoviedb.org/3/genre/movie/list?api_key=e248b861c3ca5e9cf5bb0113718abaf2&language=en-US'
             )
-            console.log(trendingAll.data.results)
+            // console.log(trendingAllDay.data.results)
             return {
-                trendingAll: trendingAll.data.results,
-                videos: trendingMovieDay.data.results,
-                movie: movie.data.results,
+                // trinding
+                trendingAllDay: trendingAllDay.data.results,
+                trendingMovieDay: trendingMovieDay.data.results,
+                trendingTvDay: trendingTvDay.data.results,
+                // Top
+                TopMovie: TopMovie.data.results,
+                TopTv: TopTv.data.results,
+                // Assast
                 genres: genres.data.genres,
             }
         } catch (e) {

@@ -8,31 +8,68 @@
         >
             <div class="video-card-info">
                 <!-- title -->
-                <h2 class="color-one font-weight-black">
-                    {{ video.original_title | shorten(100) }}
-                </h2>
+                <h3 class="color-one font-weight-black">
+                    {{
+                        video.original_title ||
+                        video.title ||
+                        video.original_name ||
+                        video.name
+                    }}
+                </h3>
 
-                <v-divider class="py-2"></v-divider>
-                <p class="white--text">{{ video.overview | shorten(100) }}</p>
+                <v-divider class="my-2"></v-divider>
+                <!-- <p class="white--text">{{ video.overview | shorten(100) }}</p> -->
+
                 <!-- Rating -->
                 <v-rating
                     v-model="rating"
-                    background-color="red lighten-1"
-                    color="red"
+                    background-color="yellow accent-3"
+                    color="yellow "
                     length="5"
+                    class="my-1"
                 ></v-rating>
+                <!--  -->
+                <div class="my-1">
+                    <v-btn class="ma-1" color="black white--text"
+                        >{{ video.popularity }}
+                        <v-icon color="yellow accent-3" right>mdi-eye</v-icon>
+                    </v-btn>
+                    <v-btn class="ma-2" color="black white--text"
+                        >{{ video.vote_average }}/10
+                        <v-icon color="yellow accent-3" right>mdi-star</v-icon>
+                    </v-btn>
+                </div>
+
+                <!--  -->
+                <div class="my-1">
+                    <v-btn
+                        v-for="genre_id in video.genre_ids"
+                        :key="genre_id.id"
+                        class=""
+                        color="black white--text"
+                    >
+                        <span v-for="genre in genres" :key="genre.id">
+                            <span v-if="genre_id == genre.id" class="">{{
+                                genre.name
+                            }}</span>
+                        </span>
+                        <v-icon color="yellow accent-3" right
+                            >mdi-checkbox-marked-circle</v-icon
+                        >
+                    </v-btn>
+                </div>
                 <!-- Catagre -->
-                <span
+                <!-- <span
                     v-for="genre_id in video.genre_ids"
                     :key="genre_id.id"
-                    class="pa-2 ma-3 color-one font-weight-black"
+                    class="white--text pa-2 ma-3 black font-weight-black rounded"
                 >
                     <span v-for="genre in genres" :key="genre.id">
-                        <span v-if="genre_id == genre.id">{{
+                        <span v-if="genre_id == genre.id" class="">{{
                             genre.name
                         }}</span>
                     </span>
-                </span>
+                </span> -->
                 <!-- BTN  See More -->
                 <div>
                     <v-btn to="/video" class="mt-3" color="red white--text"
@@ -46,15 +83,15 @@
 
 <script>
 export default {
-    filters: {
-        shorten(v, num) {
-            if (v.length > num) {
-                return v.substring(0, num) + ' .....'
-            } else {
-                return v
-            }
-        },
-    },
+    // filters: {
+    //     shorten(v, num) {
+    //         if (v.length > num) {
+    //             return v.substring(0, num) + ' .....'
+    //         } else {
+    //             return v
+    //         }
+    //     },
+    // },
     props: {
         video: {
             type: Object,
