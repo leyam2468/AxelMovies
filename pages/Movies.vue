@@ -16,7 +16,7 @@
             v-model="page"
             :length="totalPages"
             total-visible="15"
-            class="my-5"
+            class="my-5 overflow-hidden"
             color="red"
             @input="next"
         ></v-pagination>

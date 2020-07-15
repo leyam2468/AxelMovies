@@ -15,6 +15,6 @@ export default {}
 .fotter {
     width: 100%;
     text-align: center;
-    border-top: 3px solid red;
+    border-top: 2px solid red;
 }
 </style>
