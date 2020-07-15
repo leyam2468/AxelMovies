@@ -9,6 +9,7 @@
                     v-for="video in trendingAllDay"
                     :key="video.id"
                     :video="video"
+                    class="elevation-20"
                 />
             </VueSlickCarousel>
         </v-container>
@@ -73,7 +74,7 @@ import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 // optional style for arrows & dots
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 import LastNews from '@/components/Home/LastNews'
-import BannerSlide from '@/components/Global/BannerSlide'
+import BannerSlide from '@/components/Home/BannerSlide'
 import VCard from '@/components/Global/VCard'
 
 export default {

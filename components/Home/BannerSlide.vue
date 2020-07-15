@@ -4,8 +4,9 @@
             :style="{
                 BackgroundImage: `url(https://image.tmdb.org/t/p/w780${video.backdrop_path})`,
             }"
-            class="BannerBox"
+            class="BannerBox elevation-20"
         >
+            <!-- Banner Sheet Info -->
             <v-sheet color="rgba(30, 30, 30, 0.5)" height="100%" tile>
                 <v-container>
                     <v-row
@@ -13,6 +14,7 @@
                         align="center"
                         justify="center"
                     >
+                        <!-- Img  -->
                         <v-col md="4" cols="12">
                             <v-img
                                 :src="`https://image.tmdb.org/t/p/w500${video.poster_path}`"
@@ -22,6 +24,7 @@
                             >
                             </v-img>
                         </v-col>
+                        <!-- Info Movie -->
                         <v-col md="8" class="hidden-xs-only"
                             ><div class="pa-2">
                                 <h2
@@ -35,15 +38,24 @@
                                     }}
                                 </h2>
                                 <v-divider class="py-2"></v-divider>
-                                <p>{{ video.overview | shorten(250) }}</p>
+                                <p class="white--text">
+                                    {{ video.overview | shorten(250) }}
+                                </p>
 
                                 <v-rating
                                     v-model="video.vote_average"
-                                    background-color="red lighten-3"
-                                    color="red"
+                                    background-color="yellow accent-3"
+                                    color="yellow"
                                     length="10"
-                                ></v-rating></div
-                        ></v-col>
+                                ></v-rating>
+                                <v-btn
+                                    to="/video"
+                                    class="mt-3"
+                                    color="red white--text"
+                                    >See Movie</v-btn
+                                >
+                            </div>
+                        </v-col>
                     </v-row>
                 </v-container>
             </v-sheet>

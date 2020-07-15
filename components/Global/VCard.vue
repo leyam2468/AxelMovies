@@ -26,7 +26,7 @@
                     background-color="yellow accent-3"
                     color="yellow "
                     length="5"
-                    class="my-1"
+                    class="mt-1"
                 ></v-rating>
                 <!--  -->
                 <div class="my-1">

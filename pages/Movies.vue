@@ -4,11 +4,13 @@
             <h1>Movies</h1>
         </div>
         <!--  -->
-        <v-row dense justify="center" align="center">
-            <v-col v-for="video in posts" :key="video.id" cols="6" md="2">
-                <VCard :video="video" :genres="genres" />
-            </v-col>
-        </v-row>
+        <v-container>
+            <v-row dense justify="space-between">
+                <v-col v-for="video in posts" :key="video.id" cols="6" md="3">
+                    <VCard :video="video" :genres="genres" />
+                </v-col>
+            </v-row>
+        </v-container>
         <!--  -->
         <v-pagination
             v-model="page"
@@ -39,7 +41,7 @@ export default {
             const genres = await $axios.get(
                 'https://api.themoviedb.org/3/genre/movie/list?api_key=e248b861c3ca5e9cf5bb0113718abaf2&language=en-US'
             )
-            console.log(movie)
+            // console.log(movie)
             return {
                 posts: movie.data.results,
                 page: movie.data.page,

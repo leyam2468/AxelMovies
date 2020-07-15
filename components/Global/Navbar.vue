@@ -91,7 +91,7 @@
                         }}</v-icon
                     >
                 </v-btn>
-                <v-btn class="">
+                <v-btn icon>
                     <v-icon>mdi-movie-search-outline</v-icon>
                 </v-btn>
                 <!-- Setting -->
