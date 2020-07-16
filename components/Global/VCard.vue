@@ -40,10 +40,10 @@
                     </v-btn>
                 </div>
 
-                <!--  -->
+                <!-- Catagre -->
                 <div class="my-1">
                     <v-btn
-                        v-for="genre_id in video.genre_ids"
+                        v-for="genre_id in video.genre_ids.slice(0, 2)"
                         :key="genre_id.id"
                         class=""
                         color="black white--text"
@@ -58,18 +58,7 @@
                         >
                     </v-btn>
                 </div>
-                <!-- Catagre -->
-                <!-- <span
-                    v-for="genre_id in video.genre_ids"
-                    :key="genre_id.id"
-                    class="white--text pa-2 ma-3 black font-weight-black rounded"
-                >
-                    <span v-for="genre in genres" :key="genre.id">
-                        <span v-if="genre_id == genre.id" class="">{{
-                            genre.name
-                        }}</span>
-                    </span>
-                </span> -->
+
                 <!-- BTN  See More -->
                 <div>
                     <v-btn to="/video" class="mt-3" color="red white--text"

@@ -17,7 +17,7 @@
         <!-- Trending Movies -->
         <div class="trending">
             <div class="title my-5 ml-3">
-                <h1 class="d-inline-block">Trinding Movies</h1>
+                <h1 class="d-inline-block">Trending Movies</h1>
                 <v-btn text class="watcheBTN">Watche All</v-btn>
             </div>
             <VueSlickCarousel v-bind="slickOptions">
@@ -30,7 +30,7 @@
         <!-- Trending Tv -->
         <div class="trending">
             <div class="title my-5 ml-3">
-                <h1 class="d-inline-block">Trinding Tv</h1>
+                <h1 class="d-inline-block">Trending Tv</h1>
                 <v-btn text class="watcheBTN">Watche All</v-btn>
             </div>
             <VueSlickCarousel v-bind="slickOptions">

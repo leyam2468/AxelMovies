@@ -143,17 +143,17 @@ export default {
                     icon: 'mdi-apps',
                 },
                 {
-                    to: '/Lastadd',
-                    title: 'Last Added',
-                    icon: 'mdi-account-alert',
+                    to: 'trending',
+                    title: 'Trending',
+                    icon: 'mdi-cast-education',
                 },
                 {
-                    to: '/tv',
+                    to: 'tv',
                     title: 'TV Show',
                     icon: 'mdi-solar-panel-large',
                 },
                 {
-                    to: '/movies',
+                    to: 'movies',
                     title: 'Movies',
                     icon: 'mdi-account-cash',
                 },
@@ -163,9 +163,9 @@ export default {
                     icon: 'mdi-card-account-mail',
                 },
                 {
-                    to: 'Trending',
-                    title: 'Trending',
-                    icon: 'mdi-cast-education',
+                    to: 'Lastadd',
+                    title: 'Last Added',
+                    icon: 'mdi-account-alert',
                 },
             ],
         }

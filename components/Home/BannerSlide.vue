@@ -48,6 +48,26 @@
                                     color="yellow"
                                     length="10"
                                 ></v-rating>
+                                <!--  -->
+                                <div class="my-1">
+                                    <v-btn
+                                        class="ma-1"
+                                        color="black white--text"
+                                        >{{ video.popularity }}
+                                        <v-icon color="yellow accent-3" right
+                                            >mdi-eye</v-icon
+                                        >
+                                    </v-btn>
+                                    <v-btn
+                                        class="ma-2"
+                                        color="black white--text"
+                                        >{{ video.vote_average }}/10
+                                        <v-icon color="yellow accent-3" right
+                                            >mdi-star</v-icon
+                                        >
+                                    </v-btn>
+                                </div>
+
                                 <v-btn
                                     to="/video"
                                     class="mt-3"
