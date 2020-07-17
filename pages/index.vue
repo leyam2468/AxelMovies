@@ -140,10 +140,15 @@ export default {
                 focusOnSelect: false,
                 responsive: [
                     {
-                        breakpoint: 750,
+                        breakpoint: 770,
+                        settings: {
+                            slidesToShow: 4,
+                        },
+                    },
+                    {
+                        breakpoint: 425,
                         settings: {
                             slidesToShow: 2,
-                            slidesToScroll: 2,
                         },
                     },
                 ],
