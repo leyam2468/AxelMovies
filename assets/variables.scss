@@ -7,6 +7,41 @@ $color-one: #ff0000;
 .color-one {
     color: $color-one;
 }
+
+//
+.page-enter-active,
+.page-leave-active {
+    transition: all 0.5s;
+}
+.page-enter,
+.page-leave-active {
+    opacity: 0;
+    transform: scaleY(0);
+}
+//
+// body,
+// h1,
+// h2 {
+// }
+body,
+html {
+    scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+    width: 5px;
+    position: relative;
+}
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background-color: $color-one;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: red;
+}
+
 a {
     text-decoration: none;
 }

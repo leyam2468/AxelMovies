@@ -61,7 +61,10 @@
 
                 <!-- BTN  See More -->
                 <div>
-                    <v-btn to="/video" class="mt-3" color="red white--text"
+                    <v-btn
+                        :to="'/' + video.id"
+                        class="mt-3"
+                        color="red white--text"
                         >See Movie</v-btn
                     >
                 </div>

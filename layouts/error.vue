@@ -39,6 +39,23 @@ export default {
 
 <style scoped>
 h1 {
-    font-size: 20px;
+    font-size: 5rem;
+    font-weight: bold;
+    text-align: center;
+    color: red;
+}
+a {
+    width: 200px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px;
+    color: red;
+    background-color: white;
+    border-radius: 4px;
+    transition: all 0.5s ease-in-out;
+}
+a:hover {
+    color: white;
+    background-color: red;
 }
 </style>

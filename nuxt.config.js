@@ -30,7 +30,7 @@ export default {
                 content: process.env.npm_package_description || '',
             },
         ],
-        link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+        link: [{ rel: 'icon', type: 'image/x-icon', href: '/logo_A4V.png' }],
     },
     loading: { color: '#c62828' },
     /*
