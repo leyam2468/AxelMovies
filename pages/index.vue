@@ -134,6 +134,7 @@ export default {
         return {
             slickOptions: {
                 slidesToShow: 5,
+                slidesToScroll: 5,
                 arrows: false,
                 autoplay: true,
                 autoplaySpeed: 3000,
@@ -143,12 +144,22 @@ export default {
                         breakpoint: 770,
                         settings: {
                             slidesToShow: 4,
+                            slidesToScroll: 4,
+                            arrows: false,
+                            autoplay: true,
+                            autoplaySpeed: 3000,
+                            focusOnSelect: false,
                         },
                     },
                     {
                         breakpoint: 425,
                         settings: {
                             slidesToShow: 2,
+                            slidesToScroll: 2,
+                            arrows: false,
+                            autoplay: true,
+                            autoplaySpeed: 3000,
+                            focusOnSelect: false,
                         },
                     },
                 ],
